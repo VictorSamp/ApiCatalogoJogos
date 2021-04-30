@@ -1,3 +1,4 @@
+using ApiCatalogoJogos.Middleware;
 using ApiCatalogoJogos.Repositories;
 using ApiCatalogoJogos.Services;
 using ExemploApiCatalogoJogos.Controllers.V1;
@@ -59,6 +60,8 @@ namespace ApiCatalogoJogos
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
